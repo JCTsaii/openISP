@@ -32,7 +32,8 @@ class EE:
         elif val > thres[1]:
             lut = gain[1] * val
         # np.clip(lut, clip[0], clip[1], out=lut)
-        lut = max(clip[0], min(lut / 256, clip[1]))
+        #lut = max(clip[0], min(lut / 256, clip[1]))
+        lut = np.clip(lut / 256.0, clip[0], clip[1])
         return lut
 
     def execute(self):
